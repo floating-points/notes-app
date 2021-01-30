@@ -37,6 +37,13 @@ Note 컴포넌트가 `<textarea>` 태그를 포함하도록 작성해주세요. 
 - 첫 페이지에 노트를 추가하는 버튼이 있습니다.
 - 버튼을 클릭하면 버튼 아래에 노트(Note 컴포넌트)가 추가됩니다.
 
+## Git works
+- `main` 브랜치가 아닌 본인의 브랜치에서 작업해주세요.
+- Git Commit은 적당히 작은 작업 단위로 해주세요.
+  - 예시) Note 컴포넌트 구현
+  - 예시) Button 클릭 시 Note 추가
+  - 나쁜 예시) Note 컴포넌트 구현 및 Button 클릭 시 Note 추가
+
 ## Pull Request
 
 1. GitHub notes-app 레포지터리의 [Pull Request 메뉴](https://github.com/floating-points/notes-app/pulls)로 이동합니다.
