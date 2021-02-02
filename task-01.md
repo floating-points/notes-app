@@ -36,6 +36,7 @@ Note 컴포넌트가 `<textarea>` 태그를 포함하도록 작성해주세요. 
 
 - 첫 페이지에 노트를 추가하는 버튼이 있습니다.
 - 버튼을 클릭하면 버튼 아래에 노트(Note 컴포넌트)가 추가됩니다.
+- 레퍼런스: https://codepen.io/nickmoreton/pen/gbyygq
 
 ## Git works
 - `main` 브랜치가 아닌 본인의 브랜치에서 작업해주세요.
