@@ -5,3 +5,5 @@ function Note() {
         </textarea>
     )
 }
+
+export default Note;
