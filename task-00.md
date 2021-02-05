@@ -50,6 +50,20 @@ public/
 src/
 ```
 
+
+### Troubleshooting
+ 
+ 만약 `We no longer support global installation of Create React App`오류가 나온다면 아래 방법을 따라해보세요
+- `npm uninstall -g create-react-app` 후 다시 `npx create-react-app .`
+
+그래도 진행이 안된다면
+- `git switch main` 명령어로 `main` 브랜치로 이동해주세요.
+- `git branch -D [GitHub ID]` 명령어로 앞에서 생성했던 브랜치를 삭제해줍니다.
+- 그 다음 `git switch project-template` 명령어로 `project-template` 브랜치로 이동해주세요.
+- `git switch -c [GitHub ID]` 명령어로 자신의 GitHub ID 브랜치를 만들어주세요.
+- 미리 만들어진 프로젝트 파일들이 잘 보인다면 `npm install` 명령어로 의존성 패키지들을 설치하신 뒤 작업하시면 됩니다.
+
+
 ## .gitignore 파일 만들기
 
 `git`을 사용하다보면 종종 올리고싶지 않은 파일들이 생깁니다.
