@@ -28,7 +28,7 @@ git switch -c <GitHub ID>
 
 브랜치가 만들어지면, 자동적으로 새로 만든 브랜치로 변경됩니다.
 
-새로 만든 브랜치에 main 레포지터리의 파일들(tasks-*.md와 images 폴더)이 딸려옵니다. 불편하시다면 지우셔도 무방합니다!
+새로 만든 브랜치에 따라온 main 레포지터리의 파일들(tasks-\*.md와 images 폴더)은 지워주세요.
 
 ## React App 생성하기
 
