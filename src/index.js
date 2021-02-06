@@ -6,7 +6,7 @@ import Note from './components/Note/index.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <Note />,
+    <App />,
   document.getElementById('root')
 );
 
