@@ -23,7 +23,7 @@ class NoteList extends React.Component{
     render(){
         const {data}=this.props;
         const list=data.map(
-            info=>(<Note info={info} />)
+            info=>(<Note info="내용을 입력하세요" />)
         )
 
         return <div>{list}</div>
