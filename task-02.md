@@ -53,3 +53,12 @@ Note 컴포넌트에 삭제 버튼을 추가하고, 삭제 버튼을 클릭하�
 <summary>Hint</summary>
 <p>1주차에서는 state를 사용했으니 이번에는 props를 이용해보세요</p>
 </details>
+
+
+## Pull Request
+
+Pull Request는 자신의 1주차 브랜치로 Merge하도록 해주세요.
+
+예시:
+
+![Pull request example](/images/task-02/pr.png)
