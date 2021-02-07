@@ -43,6 +43,7 @@ src
 ```
 
 스타일 예시: (이것보다는 더 예쁘게 해주세요)
+
 ![Styled elements](/images/task-02/task2.3.png)
 
 ## Task 2.4
