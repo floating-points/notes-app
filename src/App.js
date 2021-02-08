@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import Note from './components/Note'
+import Note from './components/Note/Note.jsx'
 
 function App() {
   const [textAreas, setTextAreas] = useState([])
