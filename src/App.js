@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Note from './components/Note';
+import './App.css'
 
 class App extends Component {
   state = {
@@ -19,7 +20,7 @@ class App extends Component {
 
     return (
       <div>
-        <button
+        <button className="NewNote"
           onClick={this.addNote}>
           노트 추가
         </button>
