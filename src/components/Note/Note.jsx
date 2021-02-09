@@ -6,10 +6,10 @@ function Note() {
     return open && (
         <div>
             <textarea style={{display: "block"}}>
-            아무거나 입력
+                노트를 입력
             </textarea>
             <button onClick={()=>setOpen(false)}>
-                삭제
+                노트 삭제
             </button>
         </div>
     )

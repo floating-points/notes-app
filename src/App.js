@@ -8,7 +8,7 @@ function App() {
       <button onClick={() => {
         setTextAreas([...textAreas, <Note/>]);
       }}>
-        추가
+        노트 추가
       </button>
       {textAreas}
     </div>
