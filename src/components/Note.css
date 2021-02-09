@@ -1,0 +1,14 @@
+.Note {
+  display: block;
+  margin: 20px 20px 20px 20px;
+  width: 300px;
+  height: 190px;
+  background-attachment: local;
+  background-image:
+    linear-gradient(to right, #ffc90e 10px, transparent 10px),
+    linear-gradient(to left, white 10px, transparent 10px),
+    repeating-linear-gradient(white, white 2.25em, #ccc 2.25em, #ccc 2.28em, white 2.28em);
+  line-height: 2.28em;
+  padding: 5px 20px;
+  font-family: sans-serif;
+}
