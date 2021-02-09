@@ -1,6 +1,5 @@
 body{
     background-color: bisque;
-    text-align: center;
 }
 textarea
 {
@@ -14,7 +13,7 @@ textarea
 	height: 200px;
 	padding: 8px;
 	box-shadow: 0px 4px 10px -8px black;
-    margin:10px;
+    margin: 5px;
     outline: none
 }
 
@@ -27,4 +26,9 @@ button{
     display: inline-block;
     font-size: 20px;
     border-radius: 5px;
+    margin-bottom:10px;
+}
+.Note{
+    font-size: 50px;
+    
 }
