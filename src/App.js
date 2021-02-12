@@ -1,18 +1,23 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Note from "./components/Note/index";
+import Note from "./components/Note.jsx";
 import { useState } from "react";
 
 function App() {
-  const [note, setNote] = useState([]);
-
-  const addNote = () => {
-    setNote(note.concat(<Note />));
+  const [noteList, setNote] = useState([]);
+  const [id, setId] = useState(1);
+  const onRemove = (id) => {
+    setNote(noteList.filter((note) => note.id !== id));
   };
+  const addNote = () => {
+    setNote(() =>
+      noteList.concat({ note: <Note onRemove={onRemove} />, id: { id } })
+    );
+    setId(() => id + 1);
+  };
+
   return (
-    <div className="App">
-      <button onClick={addNote}>note</button>
-      {note}
+    <div>
+      <button onClick={addNote}>Add Note</button>
+      {noteList.map((note) => note.note)}
     </div>
   );
 }
