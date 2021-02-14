@@ -1,14 +1,13 @@
 import React from 'react'
-import App from "../../App";
+import './Note.css'
 
 class Note extends React.Component{
-    static defaultProps={
-        info:"내용을 입력하세요"
-    }
     render(){
+        const {info, noteRemove}=this.props;
         return (
-            <div>
-                <textarea>{this.props.info}</textarea>
+            <div className="note-item">
+                <textarea className="note-text">{info}</textarea>
+                <div className="remove-button" onClick={noteRemove}>삭제</div>
             </div>
         )
 
