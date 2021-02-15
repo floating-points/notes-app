@@ -12,7 +12,7 @@ class Note extends React.Component{
         const {text}=this.props;
         return (
             <div className="note-item">
-                <textarea className="note-text">{text}</textarea>
+                <textarea className="note-text" defaultValue={text}/>
                 <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>
         )
@@ -23,10 +23,13 @@ class Note extends React.Component{
 class NoteList extends React.Component{
 
     render(){
-        const {data}=this.props;
+        const {data, noteRemove}=this.props;
         const list=data.map(
             info=>(<Note
-                id={info.id}
+                noteInfo={info}
+                noteRemove={noteRemove}
+                text={info.text}
+                key={info.id}
                 />)
         )
 
