@@ -4,19 +4,19 @@ import NoteList from './components/Note/index.js'
 
 class App extends React.Component {
     id=1;
-    defaultText="내용을 입력하세요";
+    defaultText=" 번째 메모";
     state={
         information:[
             {
-                id:0,
-                text:this.defaultText
+                id:1,
+                text:this.id+this.defaultText
             }
         ]
     }
 
     noteCreate=()=>{
         this.setState((prevState)=>{
-            return {information:prevState.information.concat({id:this.id++, text:this.defaultText})};
+            return {information:prevState.information.concat({id:this.id++, text:this.id+this.defaultText})};
             }
         )
         //console.log(this.id)
@@ -37,7 +37,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <button onClick={this.noteCreate}>노트 추가</button>
+                <button onClick={this.noteCreate}>메모 추가</button>
                 <NoteList data={information} noteRemove={this.noteRemove}/>
             </div>
         );
