@@ -2,12 +2,18 @@ import React from 'react'
 import './Note.css'
 
 class Note extends React.Component{
+
+    handleRemove=()=>{
+        const {noteInfo, noteRemove}=this.props;
+        noteRemove(noteInfo.id);
+    }
+
     render(){
-        const {info, noteRemove}=this.props;
+        const {text}=this.props;
         return (
             <div className="note-item">
-                <textarea className="note-text">{info}</textarea>
-                <div className="remove-button" onClick={noteRemove}>삭제</div>
+                <textarea className="note-text">{text}</textarea>
+                <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>
         )
 
@@ -15,14 +21,13 @@ class Note extends React.Component{
 }
 
 class NoteList extends React.Component{
-    static defaultProps={
-        data:[]
-    }
 
     render(){
         const {data}=this.props;
         const list=data.map(
-            info=>(<Note info="내용을 입력하세요" />)
+            info=>(<Note
+                id={info.id}
+                />)
         )
 
         return <div>{list}</div>
