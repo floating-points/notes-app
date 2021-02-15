@@ -8,7 +8,7 @@ class App extends React.Component {
     state={
         information:[
             {
-                id:1,
+                id:this.id,
                 text:this.id+this.defaultText
             }
         ]
@@ -36,8 +36,8 @@ class App extends React.Component {
         const {information}=this.state;
 
         return (
-            <div>
-                <button onClick={this.noteCreate}>메모 추가</button>
+            <div className="notes-app">
+                <div className="create-button" onClick={this.noteCreate}>메모 추가</div>
                 <NoteList data={information} noteRemove={this.noteRemove}/>
             </div>
         );
