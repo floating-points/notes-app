@@ -12,6 +12,7 @@ class Note extends React.Component{
         const {noteInfo}=this.props;
         return (
             <div className="note-item">
+                <input type="checkbox" />
                 <textarea className="note-text" defaultValue={noteInfo.text}/>
                 <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>
