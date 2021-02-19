@@ -8,11 +8,17 @@ class Note extends React.Component{
         noteRemove(noteInfo.id);
     }
 
+    handleCheck=()=>{
+        const {noteInfo}=this.props;
+        noteInfo.checked=noteInfo.checked===false;
+        console.log(noteInfo.checked);
+    }
+
     render(){
         const {noteInfo}=this.props;
         return (
             <div className="note-item">
-                <input type="checkbox" />
+                <input type="checkbox" onChange={this.handleCheck}/>
                 <textarea className="note-text" defaultValue={noteInfo.text}/>
                 <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>

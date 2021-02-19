@@ -2,10 +2,16 @@ body{
   background: #e3fafc;
 }
 
+
 .notes-app{
   display:flex;
   flex-direction: column;
   align-items: center;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
 }
 
 .create-button{
@@ -23,4 +29,17 @@ body{
 
 .create-button:hover{
   background: #9775fa;
+}
+
+.checked-remove-button{
+  display:flex;
+  width:7rem;
+  height:2rem;
+  border-radius: 5px;
+  font-size:1rem;
+  align-items: center;
+  justify-content: center;
+  border:0;
+  background: #faa2c1;
+  color:white;
 }
