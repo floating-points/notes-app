@@ -12,6 +12,7 @@ body{
 .buttons{
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
 
 .create-button{
@@ -37,9 +38,14 @@ body{
   height:2rem;
   border-radius: 5px;
   font-size:1rem;
+  font-weight:bold;
   align-items: center;
   justify-content: center;
   border:0;
   background: #faa2c1;
   color:white;
+}
+
+.checked-remove-button:hover{
+  background: #f06595;
 }

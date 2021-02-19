@@ -29,6 +29,6 @@
 }
 
 .note-text:focus{
-    background: #dbe4ff;
+    background: #fff9db;
     border:1px solid black;
 }

@@ -11,7 +11,7 @@ class Note extends React.Component{
     handleCheck=()=>{
         const {noteInfo}=this.props;
         noteInfo.checked=noteInfo.checked===false;
-        console.log(noteInfo.checked);
+        //console.log(noteInfo.checked);
     }
 
     render(){
