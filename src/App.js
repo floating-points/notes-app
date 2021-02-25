@@ -1,19 +1,23 @@
 import React from 'react'
-import './App.css';
+import './App.css'
 import NoteList from './components/Note/index.js'
 
 class App extends React.Component {
-    id=1;
-    defaultText=" 번째 메모";
-    state={
-        information:[
-            {
-                id:0, //첫 메모는 id 0
-                text:this.id+this.defaultText,
-                checked:false
-            }
-        ]
+    constructor (props) {
+        super(props);
+        this.id=1;
+        this.defaultText=" 번째 메모";
+        this.state={
+            information:[
+                {
+                    id:0, //첫 메모는 id 0
+                    text:this.id+this.defaultText,
+                    checked:false
+                }
+            ]
+        }
     }
+
 
     noteCreate=()=>{
         this.setState((prevState)=>{
