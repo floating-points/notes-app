@@ -3,27 +3,96 @@ import './Note.css'
 
 class Note extends Component {
   static defaultProps = {
-    info: [],
-    onRemove: () => console.log('onRemove not defined')
+    info: {},
+    onRemove: () => console.log('onRemove not defined'),
+    onChange: () => console.log('onChange not defined'),
+  }
+
+  state = {
+    body: this.props.info.body
+  }
+
+  handleUpdate = (newEdit, text) => {
+    const { info, onChange } = this.props;
+    console.log('handleUpdate');
+    console.log(info.id);
+    console.log(info.body);
+    console.log(this.state.body);
+    console.log(info.edit);
+    this.setState(
+      (state) => ({
+        body: text
+      })
+    );
+    onChange(info.id, newEdit, text);
   }
 
   handleRemove = () => {
     const { info, onRemove } = this.props;
     onRemove(info.id);
   }
+
+  handleCancel = () => {
+    const { info, onChange } = this.props;
+    console.log('handleCancel');
+    console.log(info.id);
+    console.log(info.body);
+    console.log(this.state.body);
+    console.log(info.edit);
+    onChange(info.id, false, this.state.body);
+  }
+
+  handleUpdateTextarea = (text) => {
+    const { info, onChange } = this.props;
+    onChange(info.id, true, text);
+  }
+
   render() {
-    const style = {
-      background: 'red',
-      border: 'none',
-      color: 'white',
-      padding: '7px 20px 7px 20px',
-    };
+    const { info } = this.props;
+    const idSelector = '#note' + info.id;
+
+    if (info.edit) {
+      return (
+        <div>
+          <textarea
+            className="Note"
+            id={'note' + info.id}
+            value={info.body}
+            onChange={e => this.handleUpdateTextarea(e.currentTarget.value)}
+          ></textarea>
+
+          <button
+            className="update"
+            onClick={e => this.handleUpdate(!info.edit, document.querySelector(idSelector).value)}
+          >
+            완료
+          </button>
+          <button
+            className="cancel"
+            onClick={this.handleCancel}
+          >
+            취소
+          </button>
+        </div>
+      )
+    }
 
     return (
       <div>
-        <textarea className="Note"></textarea>
+        <textarea
+          className="Note"
+          id={'note' + info.id}
+          value={info.body}
+        ></textarea>
+
         <button
-          style={style}
+          className="update"
+          onClick={e => this.handleUpdate(!info.edit, document.querySelector(idSelector).value)}
+        >
+          수정
+        </button>
+        <button
+          className="delete"
           onClick={this.handleRemove}
         >
           삭제

@@ -7,8 +7,35 @@
   background-image:
     linear-gradient(to right, #ffc90e 10px, transparent 10px),
     linear-gradient(to left, white 10px, transparent 10px),
-    repeating-linear-gradient(white, white 2.25em, #ccc 2.25em, #ccc 2.28em, white 2.28em);
-  line-height: 2.28em;
+    repeating-linear-gradient(white, white 29px, #ccc 29px, #ccc 30px, white 30px);
+  line-height: 30px;
   padding: 5px 20px;
   font-family: sans-serif;
+}
+
+.update {
+  background: blue;
+  border: none;
+  color: white;
+  padding: 7px 20px 7px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.cancel {
+  background: orange;
+  border: none;
+  color: white;
+  padding: 7px 20px 7px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.delete {
+  background: red;
+  border: none;
+  color: white;
+  padding: 7px 20px 7px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
