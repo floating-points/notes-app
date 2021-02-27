@@ -73,14 +73,18 @@ class App extends React.Component {
                 return {focusText:e.target.focusText};
             }
         )
+        console.log(this.state.focusText);
     }
 
     focusedTextEditStart=()=>{
         this.setState((prevState)=>{
-                return {textEditing:prevState.textEditing===false};
+                return {
+                    textEditing:prevState.textEditing===false,
+                    focusText:prevState.focusText
+                };
             }
         )
-        //console.log(this.state.textEditing)
+        console.log(this.state.focusText);
     }
 
 
