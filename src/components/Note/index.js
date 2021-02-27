@@ -14,12 +14,17 @@ class NoteButton extends React.Component{
         //console.log(noteInfo.checked);
     }
 
+    handleFocus=()=>{
+        const {noteInfo, focusedNoteToText}=this.props;
+        focusedNoteToText(noteInfo.id);
+    }
+
     render(){
         const {noteInfo}=this.props;
         return (
             <div className="note-item">
                 <input type="checkbox" onChange={this.handleCheck}/>
-                <div className="note-focus-button">{noteInfo.text}</div>
+                <div className="note-focus-button" onClick={this.handleFocus}>{noteInfo.text}</div>
                 <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>
         )
@@ -30,11 +35,12 @@ class NoteButton extends React.Component{
 class NoteList extends React.Component{
 
     render(){
-        const {data, noteRemove}=this.props;
+        const {data, noteRemove, focusedNoteToText}=this.props;
         const list=data.map(
             info=>(<NoteButton
                 noteInfo={info}
                 noteRemove={noteRemove}
+                focusedNoteToText={focusedNoteToText}
                 key={info.id}
                 />)
         )
