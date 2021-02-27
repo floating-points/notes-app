@@ -70,13 +70,14 @@ body{
 }
 
 .note-edit-area{
-  width:75%;
-  height:100%;
+  width:80vw;
+  height:90vh;
 }
 
 .note-buttons{
   display: flex;
   flex-direction: row;
+  width:100%;
   justify-content: flex-end;
 }
 
@@ -89,6 +90,11 @@ body{
   align-items: center;
   justify-content: center;
   color:white;
+  margin:3px;
+}
+
+.note-edit-button:hover{
+  background: #cc5de8;
 }
 
 .note-remove-button{
@@ -100,6 +106,11 @@ body{
   align-items: center;
   justify-content: center;
   color:white;
+  margin:3px;
+}
+
+.note-remove-button:hover{
+  background: #fa5252;
 }
 
 .note-text-area{
