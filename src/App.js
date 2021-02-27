@@ -5,10 +5,10 @@ import NoteList from './components/Note/index.js'
 class NoteTextArea extends React.Component{
 
     render () {
-        const {textEditing, focusText, focusTextChange}=this.props;
+        const {textEditing, focusText, focusedTextChange}=this.props;
         if(textEditing===true) {
             return (
-                <textarea className="note-text-area" value={focusText} onChange={focusTextChange}/>
+                <textarea className="note-text-area" value={focusText} onChange={focusedTextChange}/>
             );
         }
         else{
@@ -68,12 +68,22 @@ class App extends React.Component {
         )
     }
 
-    focusTextChange=(e)=>{
+    focusedTextChange=(e)=>{
         this.setState(()=>{
                 return {focusText:e.target.focusText};
             }
         )
     }
+
+    focusedTextEditStart=()=>{
+        this.setState((prevState)=>{
+                return {textEditing:prevState.textEditing===false};
+            }
+        )
+        //console.log(this.state.textEditing)
+    }
+
+
 
 
     render() {
@@ -89,10 +99,10 @@ class App extends React.Component {
                     <NoteList data={information} noteRemove={this.noteRemove} focusedNoteToText={this.focusedNoteToText}/>
                     <div className="note-edit-area">
                         <div className="note-buttons">
-                            <div className="note-edit-button">메모 수정</div>
+                            <div className="note-edit-button" onClick={this.focusedTextEditStart}>메모 수정</div>
                             <div className="note-remove-button">메모 삭제</div>
                         </div>
-                        <NoteTextArea textEditing={textEditing} focusText={focusText} focusTextChange={this.focusTextChange}/>
+                        <NoteTextArea textEditing={textEditing} focusText={focusText} focusedTextChange={this.focusedTextChange}/>
                     </div>
                 </div>
             </div>
