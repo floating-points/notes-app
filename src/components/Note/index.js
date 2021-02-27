@@ -1,7 +1,7 @@
 import React from 'react'
 import './Note.css'
 
-class Note extends React.Component{
+class NoteButton extends React.Component{
 
     handleRemove=()=>{
         const {noteInfo, noteRemove}=this.props;
@@ -19,7 +19,7 @@ class Note extends React.Component{
         return (
             <div className="note-item">
                 <input type="checkbox" onChange={this.handleCheck}/>
-                <textarea className="note-text" defaultValue={noteInfo.text}/>
+                <div className="note-focus-button">{noteInfo.text}</div>
                 <div className="remove-button" onClick={this.handleRemove}>삭제</div>
             </div>
         )
@@ -32,7 +32,7 @@ class NoteList extends React.Component{
     render(){
         const {data, noteRemove}=this.props;
         const list=data.map(
-            info=>(<Note
+            info=>(<NoteButton
                 noteInfo={info}
                 noteRemove={noteRemove}
                 key={info.id}

@@ -49,11 +49,20 @@ class App extends React.Component {
 
         return (
             <div className="notes-app">
-                <div className="buttons">
+                <div className="list-buttons">
                     <div className="create-button" onClick={this.noteCreate}>메모 추가</div>
                     <div className="checked-remove-button" onClick={this.checkedNoteRemove}>일괄 삭제</div>
                 </div>
-                <NoteList data={information} noteRemove={this.noteRemove}/>
+                <div className="note-contents">
+                    <NoteList data={information} noteRemove={this.noteRemove}/>
+                    <div className="note-edit-area">
+                        <div className="note-buttons">
+                            <div className="note-edit-button">메모 수정</div>
+                            <div className="note-remove-button">메모 삭제</div>
+                        </div>
+                        <textarea className="note-text-area"/>
+                    </div>
+                </div>
             </div>
         );
     }

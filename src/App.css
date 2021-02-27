@@ -1,3 +1,13 @@
+html, body{
+  width:100%;
+  height:100%;
+}
+
+#root{
+  width:100%;
+  height:100%;
+}
+
 body{
   background: #e3fafc;
 }
@@ -6,10 +16,12 @@ body{
 .notes-app{
   display:flex;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
+  width:100%;
+  height:100%;
 }
 
-.buttons{
+.list-buttons{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -48,4 +60,63 @@ body{
 
 .checked-remove-button:hover{
   background: #f06595;
+}
+
+.note-contents{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  height:100%;
+}
+
+.note-edit-area{
+  width:75%;
+  height:100%;
+}
+
+.note-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.note-edit-button{
+  display: flex;
+  width: 6rem;
+  height:2rem;
+  border-radius: 5px;
+  background:#e599f7;
+  align-items: center;
+  justify-content: center;
+  color:white;
+}
+
+.note-remove-button{
+  display:flex;
+  width: 6rem;
+  height:2rem;
+  border-radius: 5px;
+  background:#ff8787;
+  align-items: center;
+  justify-content: center;
+  color:white;
+}
+
+.note-text-area{
+  width:100%;
+  height:90%;
+  border-radius: 7px;
+  font-size:12pt;
+  background-attachment: local;
+  background-image:
+    linear-gradient(to right, white 10px, transparent 10px),
+    linear-gradient(to left, white 10px, transparent 10px),
+    repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+  line-height: 31px;
+  padding: 8px 10px;
+  resize:none;
+}
+
+.temp{
+  background: #faa2c1;
 }

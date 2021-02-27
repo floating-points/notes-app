@@ -22,13 +22,8 @@
     color:white;
 }
 
-.note-text{
-    width:30rem;
-    height:5rem;
-    resize:none;
-}
-
-.note-text:focus{
-    background: #fff9db;
-    border:1px solid black;
+.note-focus-button{
+    width:15rem;
+    height:3rem;
+    background: white;
 }
