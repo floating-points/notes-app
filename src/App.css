@@ -21,7 +21,7 @@ body{
   height:100%;
 }
 
-.list-buttons{
+.note-list-buttons{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
