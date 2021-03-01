@@ -26,4 +26,7 @@
     width:15rem;
     height:3rem;
     background: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

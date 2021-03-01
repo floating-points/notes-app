@@ -3,7 +3,6 @@ import './App.css'
 import NoteList from './components/Note/index.js'
 
 class NoteTextArea extends React.Component{
-
     render () {
         const {textEditing, focusedText, focusedTextChange}=this.props;
         if(textEditing===true) {
@@ -16,6 +15,18 @@ class NoteTextArea extends React.Component{
                 <div className="note-text-area">{focusedText}</div>
             )
         }
+    }
+}
+
+class NoteListButtons extends React.Component{
+    render(){
+        const {noteCreate, checkedNoteRemove}=this.props;
+        return(
+            <div className="note-list-buttons">
+                <div className="create-button" onClick={noteCreate}>메모 추가</div>
+                <div className="checked-remove-button" onClick={checkedNoteRemove}>일괄 삭제</div>
+            </div>
+        )
     }
 }
 
@@ -146,15 +157,28 @@ class App extends React.Component {
 
         return (
             <div className="notes-app">
-                <div className="note-list-buttons">
-                    <div className="create-button" onClick={this.noteCreate}>메모 추가</div>
-                    <div className="checked-remove-button" onClick={this.checkedNoteRemove}>일괄 삭제</div>
-                </div>
+                <NoteListButtons
+                    noteCreate={this.noteCreate}
+                    checkedNoteRemove={this.checkedNoteRemove}
+                />
                 <div className="note-contents">
-                    <NoteList data={information} noteRemove={this.noteRemove} focusedNoteToText={this.focusedNoteToText}/>
+                    <NoteList
+                        data={information}
+                        noteRemove={this.noteRemove}
+                        focusedNoteToText={this.focusedNoteToText}
+                    />
                     <div className="note-edit-area">
-                        <NoteButtons textEditing={textEditing} focusedNoteRemove={this.focusedNoteRemove} focusedTextEditStart={this.focusedTextEditStart} focusedTextEditEnd={this.focusedTextEditEnd}/>
-                        <NoteTextArea textEditing={textEditing} focusedText={focusedText} focusedTextChange={this.focusedTextChange}/>
+                        <NoteButtons
+                            textEditing={textEditing}
+                            focusedNoteRemove={this.focusedNoteRemove}
+                            focusedTextEditStart={this.focusedTextEditStart}
+                            focusedTextEditEnd={this.focusedTextEditEnd}
+                        />
+                        <NoteTextArea
+                            textEditing={textEditing}
+                            focusedText={focusedText}
+                            focusedTextChange={this.focusedTextChange}
+                        />
                     </div>
                 </div>
             </div>
