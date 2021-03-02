@@ -55,13 +55,14 @@ class NoteButtons extends React.Component{
 class App extends React.Component {
     constructor (props) {
         super(props);
-        this.id=1;
-        this.defaultText=" 번째 메모";
+        this.id=JSON.parse(window.sessionStorage.getItem("id")) || 1;
+        this.defaultText=JSON.parse(window.sessionStorage.getItem("defaultText")) || " 번째 메모";
         this.state={
-            focusedText:'',
-            textEditing:false, //메모를 수정 중인가?
-            focusedId:null, //현재 보고 있는 노트의 id
-            information:[
+            focusedText:JSON.parse(window.sessionStorage.getItem("focusedText")) || "",
+            textEditing:JSON.parse(window.sessionStorage.getItem("textEditing")) || false, //메모를 수정 중인가?
+            focusedId:JSON.parse(window.sessionStorage.getItem("focusedId")) || null, //현재 보고 있는 노트의 id
+            information:JSON.parse(window.sessionStorage.getItem("information")) ||
+            [
                 {
                     id:0, //첫 메모는 id 0
                     text:this.id+this.defaultText,
@@ -69,6 +70,24 @@ class App extends React.Component {
                 }
             ]
         }
+    }
+
+    componentDidMount () {
+        window.sessionStorage.setItem("id", JSON.stringify(this.id));
+        window.sessionStorage.setItem("defaultText", JSON.stringify(this.defaultText));
+        window.sessionStorage.setItem("focusedText", JSON.stringify(this.state.focusedText));
+        window.sessionStorage.setItem("textEditing", JSON.stringify(this.state.textEditing));
+        window.sessionStorage.setItem("focusedId", JSON.stringify(this.state.focusedId));
+        window.sessionStorage.setItem("information", JSON.stringify(this.state.information));
+    }
+
+    componentDidUpdate () {
+        window.sessionStorage.setItem("id", JSON.stringify(this.id));
+        //window.sessionStorage.setItem("defaultText", JSON.stringify(this.defaultText));
+        //window.sessionStorage.setItem("focusedText", JSON.stringify(this.state.focusedText));
+        //window.sessionStorage.setItem("textEditing", JSON.stringify(this.state.textEditing));
+        //window.sessionStorage.setItem("focusedId", JSON.stringify(this.state.focusedId));
+        window.sessionStorage.setItem("information", JSON.stringify(this.state.information));
     }
 
 
