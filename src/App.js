@@ -81,12 +81,8 @@ class App extends React.Component {
         window.sessionStorage.setItem("information", JSON.stringify(this.state.information));
     }
 
-    componentDidUpdate () {
-        window.sessionStorage.setItem("id", JSON.stringify(this.id));
-        //window.sessionStorage.setItem("defaultText", JSON.stringify(this.defaultText));
-        //window.sessionStorage.setItem("focusedText", JSON.stringify(this.state.focusedText));
-        //window.sessionStorage.setItem("textEditing", JSON.stringify(this.state.textEditing));
-        //window.sessionStorage.setItem("focusedId", JSON.stringify(this.state.focusedId));
+    componentDidUpdate () { //새로고침 시에는 id와 information만 저장되어 있으면 된다. 수정중인지 여부 등은 필요없음
+        window.sessionStorage.setItem("id", JSON.stringify(this.id)); //다음 업데이트를 위해서 id는 저장한다
         window.sessionStorage.setItem("information", JSON.stringify(this.state.information));
     }
 
@@ -127,7 +123,7 @@ class App extends React.Component {
     focusedNoteToText=(id)=>{ //누른 노트의 텍스트 끌어오기
         this.setState(
             (prevState)=>{
-                //console.log(prevState.information.find(note=>note.id===id).text);
+                var moveConfirm=window.confirm('노트를 편집 중입니다. 저장하고 다른 노트로 이동하시겠습니까?');
                 return {
                     focusedText:prevState.information.find(note=>note.id===id).text,
                     focusedId:id
