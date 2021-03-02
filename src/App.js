@@ -123,11 +123,27 @@ class App extends React.Component {
     focusedNoteToText=(id)=>{ //누른 노트의 텍스트 끌어오기
         this.setState(
             (prevState)=>{
-                var moveConfirm=window.confirm('노트를 편집 중입니다. 저장하고 다른 노트로 이동하시겠습니까?');
-                return {
-                    focusedText:prevState.information.find(note=>note.id===id).text,
-                    focusedId:id
-                };
+                if(prevState.textEditing){ //편집중에 노트 이동
+                    var moveConfirm=window.confirm('노트를 편집 중입니다. 편집 중인 내용을 저장하고 다른 노트로 이동하시겠습니까?');
+                    if(moveConfirm){ //다른 노트로 이동
+                        return {
+                            information:prevState.information.map(note=>note.id===prevState.focusedId?({...note, text:prevState.focusedText}):note),
+                            //기존에 보고 있던 노트 저장
+                            focusedText: prevState.information.find(note=>note.id===id).text,
+                            focusedId:id
+                        }
+                    }
+                    else{
+                        //만약 원래 노트에 남아 있을 경우
+                    }
+                }
+
+                else {
+                    return {
+                        focusedText: prevState.information.find(note => note.id === id).text,
+                        focusedId: id
+                    };
+                }
             }
         )
 
