@@ -130,7 +130,8 @@ class App extends React.Component {
                             information:prevState.information.map(note=>note.id===prevState.focusedId?({...note, text:prevState.focusedText}):note),
                             //기존에 보고 있던 노트 저장
                             focusedText: prevState.information.find(note=>note.id===id).text,
-                            focusedId:id
+                            focusedId:id,
+                            textEditing:false
                         }
                     }
                     else{
