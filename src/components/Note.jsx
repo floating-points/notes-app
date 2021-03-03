@@ -1,12 +1,12 @@
 import {useState} from 'react'
 import './Note.css'
 
-function Note() {
+function Note(props) {
     const [open, setOpen] = useState(true)
     return open && (
         <div>
             <textarea style={{display: "block"}}>
-                노트를 입력
+                {props.text}
             </textarea>
             <button onClick={()=>setOpen(false)}>
                 노트 삭제
