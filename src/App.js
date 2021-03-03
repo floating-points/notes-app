@@ -31,7 +31,7 @@ function App() {
         노트 추가
       </button>
       {noteData.map( (data, index) => (
-         <Note text={data.text} key={data.key} noteData = {noteData} setNoteData = {setNoteData}></Note>
+         <Note text={data.text} keytext = {data.key} key={data.key} noteData = {noteData} setNoteData = {setNoteData}></Note>
       ))}
     </div>
   );
