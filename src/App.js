@@ -1,18 +1,37 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Note from './components/Note.jsx'
 
 function App() {
-  const [textAreas, setTextAreas] = useState([])
-  var addNote= () => {
-    setTextAreas([ ...textAreas, "노트 입력"]);
+  const [noteData, setNoteData] = useState([])
+  useEffect( () => {
+    var noteDataJson = localStorage.getItem("notes");
+    console.log("로그 : " +noteDataJson);
+    if(noteDataJson!==null) setNoteData(JSON.parse(noteDataJson));
+  },[])
+  
+  var generateKeys = () =>
+  {
+    var arr = new Uint8Array(5);
+    window.crypto.getRandomValues(arr);
+    return Array.from(arr, (dec) => {return dec.toString(16).padStart(2,"0");}).join('');
+
   }
+  var addNoteClicked= () => {
+    var newNoteData = [ ...noteData, {text : "노트 입력", key: generateKeys()}];
+    setNoteData(newNoteData);
+    localStorage.setItem('notes', JSON.stringify(newNoteData));
+    
+    var noteDataJson = localStorage.getItem("notes");
+    console.log("로그 : " +noteDataJson);
+  }
+
   return (
     <div className="App">
-      <button onClick={addNote}>
+      <button onClick={addNoteClicked}>
         노트 추가
       </button>
-      {textAreas.map( (text, index) => (
-         <Note text={text}></Note>
+      {noteData.map( (data, index) => (
+         <Note text={data.text} key={data.key} noteData = {noteData} setNoteData = {setNoteData}></Note>
       ))}
     </div>
   );
