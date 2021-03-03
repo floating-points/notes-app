@@ -3,13 +3,13 @@ import './Note.css'
 
 function Note(props) {
     const [open, setOpen] = useState(true)
+    const [edit, setEdit] = useState(false)
+    const [text, setText] = useState(props.text)
     var textChanged = (ev) =>
     {
-        var newNoteData = props.noteData;
-        props.noteData.find(data => data.key ===props.keytext ).text = ev.target.value;
-        props.setNoteData(newNoteData);
-        localStorage.setItem('notes', JSON.stringify(newNoteData));
+        setText(ev.target.value)
     };
+
     var deleteNoteClicked = () =>
     {
         setOpen(false);
@@ -18,10 +18,42 @@ function Note(props) {
         props.setNoteData(newNoteData);
         localStorage.setItem('notes', JSON.stringify(newNoteData));
     };
+    var editNoteClicked = () =>
+    {
+        setEdit(true)
+    }
+    var editFinishClicked = () =>
+    {
+        setEdit(false)
+        console.log(text);
+        var newNoteData = props.noteData;
+        props.noteData.find(data => data.key ===props.keytext ).text = text;
+        props.setNoteData(newNoteData);
+        localStorage.setItem('notes', JSON.stringify(newNoteData));
+    }
     return open && (
         <div>
-            <textarea style={{display: "block"}} defaultValue = {props.text} onChange = {textChanged}>
-            </textarea>
+            {edit ?
+            (
+                <textarea style={{display: "block"}} defaultValue = {text} onChange = {textChanged}>
+                </textarea>
+            ):
+            (
+                <div onChange = {textChanged}>
+                    {text}
+                </div>
+            )}
+            {edit ?
+            (
+                <button onClick={editFinishClicked}>
+                        수정 완료
+                </button>
+            ):
+            (
+                <button onClick={editNoteClicked}>
+                    노트 수정
+                </button>
+            )}
             <button onClick={deleteNoteClicked}>
                 노트 삭제
             </button>
