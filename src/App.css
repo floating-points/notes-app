@@ -123,6 +123,8 @@ body{
   height:90%;
   border: 1px solid black;
   border-radius: 7px;
+  overflow:auto;
+  white-space: pre;
   font-family:Georgia;
   font-size:12pt;
   background-attachment: local;

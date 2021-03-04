@@ -60,7 +60,7 @@ class App extends React.Component {
         this.state={
             focusedText:JSON.parse(window.sessionStorage.getItem("focusedText")) || "",
             textEditing:JSON.parse(window.sessionStorage.getItem("textEditing")) || false, //메모를 수정 중인가?
-            focusedId:JSON.parse(window.sessionStorage.getItem("focusedId")) || null, //현재 보고 있는 노트의 id
+            focusedId:JSON.parse(window.sessionStorage.getItem("focusedId")) || 0, //현재 보고 있는 노트의 id
             information:JSON.parse(window.sessionStorage.getItem("information")) ||
             [
                 {
