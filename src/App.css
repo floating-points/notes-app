@@ -29,7 +29,7 @@ body{
 
 .create-button{
   display: flex;
-  width:10rem;
+  width:13rem;
   height:3rem;
   border-radius: 5px;
   font-size:1.2rem;
@@ -46,8 +46,8 @@ body{
 
 .checked-remove-button{
   display:flex;
-  width:7rem;
-  height:2rem;
+  width:6rem;
+  height:3rem;
   border-radius: 5px;
   font-size:1rem;
   font-weight:bold;
@@ -72,6 +72,11 @@ body{
 .note-edit-area{
   width:80vw;
   height:90vh;
+}
+
+.note-list-area{
+  width:20rem;
+  background: #e3fafc;
 }
 
 .note-buttons{

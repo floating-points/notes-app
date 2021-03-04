@@ -194,11 +194,13 @@ class App extends React.Component {
                     checkedNoteRemove={this.checkedNoteRemove}
                 />
                 <div className="note-contents">
-                    <NoteList
-                        data={information}
-                        noteRemove={this.noteRemove}
-                        focusedNoteToText={this.focusedNoteToText}
-                    />
+                    <div className="note-list-area">
+                        <NoteList
+                            data={information}
+                            noteRemove={this.noteRemove}
+                            focusedNoteToText={this.focusedNoteToText}
+                        />
+                    </div>
                     <div className="note-edit-area">
                         <NoteButtons
                             textEditing={textEditing}
