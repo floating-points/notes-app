@@ -1,11 +1,37 @@
 import React from "react";
 import "./Note.css";
-const Note = (props) => {
-  //console.log(props.id);
+import { useState } from "react";
+const Note = ({id, removeNote, storeNote}) => {
+  const noteRef = React.createRef();
+  const [edit, setEdit] = useState(true);
+  const onRemove = (e) =>{
+    console.log(noteRef);
+    removeNote(id);
+
+  };
+
+  const inputText = () =>{
+    setEdit(!edit);
+
+  }
+  const onStore = (text) =>{
+    storeNote(id,noteRef.current.value);
+    setEdit(!edit);
+  }
+
   return (
     <div>
-    <textarea>내용을 입력해주세요</textarea>;
-    <button onClick={props.onRemove}>삭제</button>
+    <textarea ref={noteRef} disabled={edit}></textarea>
+    <button onClick={onRemove}>삭제</button>
+    {edit ?
+    (
+        <button onClick={inputText}>수정</button>
+    )
+    :
+    (
+    <button onClick={onStore}>저장</button>
+    )
+}
     </div>
   );
 };
