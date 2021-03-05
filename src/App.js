@@ -4,20 +4,20 @@ import { useState } from "react";
 function App() {
   const [noteList, setNote] = useState([]);
   const [id, setId] = useState(1);
-  const onRemove = (id) => {
-    setNote(noteList.filter((note) => note.id !== id));
-  };
+
   const addNote = () => {
-    setNote(() =>
-      noteList.concat({ note: <Note onRemove={onRemove} />, id: { id } })
-    );
+    setNote(() => [...noteList, id]);
     setId(() => id + 1);
   };
-
+  function removeNote(id){
+    setNote((noteList) => noteList.filter((note) => note !== id));
+  }
   return (
     <div>
       <button onClick={addNote}>Add Note</button>
-      {noteList.map((note) => note.note)}
+      {noteList.map((id)  =>(
+      <Note key={id} id={id} removeNote={removeNote} />
+      ))}
     </div>
   );
 }
