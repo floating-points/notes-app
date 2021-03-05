@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
-import Note from './components/Note';
+import NoteList from './components/NoteList';
+import './App.css'
 
 class App extends Component {
+  id = 0
   state = {
-    note: []
+    notes: []
   }
 
   addNote = () => {
+    const nowId = this.id++;
     this.setState(
       (state) => ({
-        note: [...state.note, <Note />]
+        notes: [...state.notes, { id: nowId }]
+      })
+    )
+  }
+
+  removeNote = (id) => {
+    this.setState(
+      (state) => ({
+        notes: state.notes.filter(note => note.id !== id)
       })
     )
   }
 
   render() {
-    const { note } = this.state;
+    const { notes } = this.state;
 
     return (
       <div>
-        <button
+        <button className="NewNote"
           onClick={this.addNote}>
           노트 추가
         </button>
 
-        {note}
+        <NoteList
+          data={notes}
+          onRemove={this.removeNote} />
       </div>
     );
   }
