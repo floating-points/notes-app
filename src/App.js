@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import NoteList from './components/Note/index.js'
+import NoteList from './components/Note/NoteList.js'
 
 class NoteTextArea extends React.Component{
     render () {
@@ -55,7 +55,7 @@ class NoteButtons extends React.Component{
 class App extends React.Component {
     constructor (props) {
         super(props);
-        this.id=JSON.parse(window.sessionStorage.getItem("id")) || 1;
+        this.id=JSON.parse(window.sessionStorage.getItem("id")) || 0;
         this.defaultText=JSON.parse(window.sessionStorage.getItem("defaultText")) || " 번째 메모";
         this.state={
             focusedText:JSON.parse(window.sessionStorage.getItem("focusedText")) || "",
@@ -65,7 +65,15 @@ class App extends React.Component {
             [
                 {
                     id:0, //첫 메모는 id 0
-                    text:this.id+this.defaultText,
+                    text:"사용 설명서\n" +
+                        "\n" +
+                        "메모 추가 : 메모를 추가합니다.\n" +
+                        "일괄 삭제 : 체크박스가 체크된 메모를 일괄적으로 삭제합니다.\n" +
+                        "메모 클릭 : 메모를 큰 화면으로 봅니다.\n" +
+                        "메모 수정 : 메모를 수정 모드로 바꿉니다.\n" +
+                        "메모 저장 : 수정한 메모를 저장합니다.\n" +
+                        "메모 삭제 : 현재 보고 있는 메모를 삭제합니다.\n" +
+                        "사용 설명서가 적힌 메모는 삭제하거나 수정할 수 없습니다.",
                     checked:false
                 }
             ]
@@ -89,7 +97,7 @@ class App extends React.Component {
 
     noteCreate=()=>{
         this.setState((prevState)=>{
-            return {information:prevState.information.concat({id:this.id++, text:this.id+this.defaultText, checked:false})};
+            return {information:prevState.information.concat({id:++this.id, text:this.id+this.defaultText, checked:false})};
             }
         )
         //console.log(this.id)
@@ -99,7 +107,7 @@ class App extends React.Component {
         /*const {information}=this.state;*/
         this.setState(
             (prevState)=> {
-                return {information: prevState.information.filter(note => note.id !== id)};
+                return {information: prevState.information.filter(note => (note.id !== id || note.id===0))};
             }
         )
     }
@@ -107,15 +115,15 @@ class App extends React.Component {
     checkedNoteRemove=()=>{ //체크된 노트 일괄 삭제
         this.setState(
             (prevState)=>{
-                return {information:prevState.information.filter(note=>note.checked===false)};
+                return {information:prevState.information.filter(note=>(note.checked===false || note.id===0))};
             }
         )
     }
 
-    focusedNoteRemove=()=>{
+    focusedNoteRemove=()=>{ //보고있는 노트 삭제
         this.setState(
             (prevState)=>{
-                return {information: prevState.information.filter(note => note.id !== prevState.focusedId)};
+                return {information: prevState.information.filter(note => (note.id !== prevState.focusedId || note.id===0))};
             }
         )
     }

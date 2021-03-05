@@ -1,5 +1,5 @@
 import React from 'react'
-import './Note.css'
+import './NoteList.css'
 
 class NoteButton extends React.Component{
 
