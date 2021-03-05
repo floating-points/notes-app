@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import Note from './components/Note'
+import Note from './components/Note/Note.jsx'
 
 function App() {
   const [textAreas, setTextAreas] = useState([])
@@ -8,7 +8,7 @@ function App() {
       <button onClick={() => {
         setTextAreas([...textAreas, <Note/>]);
       }}>
-        추가
+        노트 추가
       </button>
       {textAreas}
     </div>
