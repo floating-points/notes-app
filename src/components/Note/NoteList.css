@@ -1,0 +1,32 @@
+.note-item{
+    display:flex;
+    flex-direction: row;
+    padding:2px;
+}
+
+.remove-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4dabf7;
+    color:white;
+    width:2.5rem;
+    height:2rem;
+    border-radius:3px;
+    margin:1px;
+    border:0;
+}
+
+.remove-button:hover{
+    background: #228be6;
+    color:white;
+}
+
+.note-focus-button{
+    width:15rem;
+    height:3rem;
+    background: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

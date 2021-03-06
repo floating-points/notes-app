@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+html, body{
+  width:100%;
+  height:100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root{
+  width:100%;
+  height:100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background: #e3fafc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+
+.notes-app{
+  display:flex;
   flex-direction: column;
+  align-items: baseline;
+  width:100%;
+  height:100%;
+}
+
+.note-list-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.create-button{
+  display: flex;
+  width:13rem;
+  height:3rem;
+  border-radius: 5px;
+  font-size:1.2rem;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border:0;
+  background: #b197fc;
+  color:white;
 }
 
-.App-link {
-  color: #61dafb;
+.create-button:hover{
+  background: #9775fa;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.checked-remove-button{
+  display:flex;
+  width:6rem;
+  height:3rem;
+  border-radius: 5px;
+  font-size:1rem;
+  font-weight:bold;
+  align-items: center;
+  justify-content: center;
+  border:0;
+  background: #faa2c1;
+  color:white;
+}
+
+.checked-remove-button:hover{
+  background: #f06595;
+}
+
+.note-contents{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  height:100%;
+}
+
+.note-edit-area{
+  width:80vw;
+  height:90vh;
+}
+
+.note-list-area{
+  width:20rem;
+  background: #e3fafc;
+}
+
+.note-buttons{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  justify-content: flex-end;
+}
+
+.note-edit-button{
+  display: flex;
+  width: 6rem;
+  height:2rem;
+  border-radius: 5px;
+  background:#e599f7;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  margin:3px;
+}
+
+.note-edit-button:hover{
+  background: #cc5de8;
+}
+
+.note-remove-button{
+  display:flex;
+  width: 6rem;
+  height:2rem;
+  border-radius: 5px;
+  background:#ff8787;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  margin:3px;
+}
+
+.note-remove-button:hover{
+  background: #fa5252;
+}
+
+.note-text-area{
+  width:100%;
+  height:90%;
+  border: 1px solid black;
+  border-radius: 7px;
+  overflow:auto;
+  white-space: pre;
+  font-family:Georgia;
+  font-size:12pt;
+  background-attachment: local;
+  background-image:
+    linear-gradient(to right, white 10px, transparent 10px),
+    linear-gradient(to left, white 10px, transparent 10px),
+    repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+  line-height: 31px;
+  padding: 8px 10px;
+  resize:none;
+}
+
+.temp{
+  background: #faa2c1;
 }
