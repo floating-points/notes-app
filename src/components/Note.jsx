@@ -5,14 +5,12 @@ const Note = ({id, removeNote, storeNote}) => {
   const noteRef = React.createRef();
   const [edit, setEdit] = useState(true);
   const onRemove = (e) =>{
-    console.log(noteRef);
     removeNote(id);
 
   };
 
   const inputText = () =>{
     setEdit(!edit);
-
   }
   const onStore = (text) =>{
     storeNote(id,noteRef.current.value);
@@ -29,7 +27,7 @@ const Note = ({id, removeNote, storeNote}) => {
     )
     :
     (
-    <button onClick={onStore}>저장</button>
+        <button onClick={onStore}>저장</button>
     )
 }
     </div>
